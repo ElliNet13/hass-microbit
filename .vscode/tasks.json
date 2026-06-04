@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Home Assistant Core",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/home-assistant-core"
+      },
+      "command": "/home/vscode/.local/bin/python3.14 -m homeassistant -c ../config",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "Compile English translations"
+      ]
+    },
+    {
+      "label": "Compile English translations",
+      "detail": "In order to test changes to translation files, the translation strings must be compiled into Home Assistant's translation directories.",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/home-assistant-core"
+      },
+      "command": "/home/vscode/.local/bin/python3.14 -m script.translations develop --all",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

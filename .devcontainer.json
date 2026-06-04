@@ -1,7 +1,9 @@
 {
     "name": "ElliNet13/hass-microbit",
-    "image": "mcr.microsoft.com/devcontainers/base:debian",
-    "postCreateCommand": "scripts/setup",
+    "build": {
+      "dockerfile": "./home-assistant-core/Dockerfile.dev",
+      "context": "./home-assistant-core"
+    },
     "forwardPorts": [
         8123
     ],
