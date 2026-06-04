@@ -9,8 +9,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from homeassistant.const import CONF_PASSWORD, CONF_USERNAME, Platform
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.const import Platform
 from homeassistant.loader import async_get_loaded_integration
 
 from .api import IntegrationBlueprintApiClient
@@ -26,7 +25,7 @@ if TYPE_CHECKING:
 PLATFORMS: list[Platform] = [
     Platform.SENSOR,
     Platform.BINARY_SENSOR,
-    Platform.SWITCH,
+    Platform.LIGHT,
 ]
 
 
@@ -39,7 +38,7 @@ async def async_setup_entry(
     coordinator = BlueprintDataUpdateCoordinator(hass=hass, logger=LOGGER, name=DOMAIN)
     entry.runtime_data = IntegrationBlueprintData(
         client=IntegrationBlueprintApiClient(
-            session=async_get_clientsession(hass),
+            serial_port=entry.data["serial_port"],
         ),
         integration=async_get_loaded_integration(hass, entry.domain),
         coordinator=coordinator,
