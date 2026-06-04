@@ -1,0 +1,12 @@
+{
+  "domain": "microbit_integration",
+  "name": "Micro:bit Integration",
+  "codeowners": [
+    "@ElliNet13"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/ElliNet13/hass-microbit/wiki",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/ElliNet13/hass-microbit/issues",
+  "version": "0.1.0"
+}

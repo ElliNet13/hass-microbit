@@ -7,7 +7,6 @@ https://github.com/ludeeus/integration_blueprint
 
 from __future__ import annotations
 
-from datetime import timedelta
 from typing import TYPE_CHECKING
 
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME, Platform
@@ -37,16 +36,9 @@ async def async_setup_entry(
     entry: IntegrationBlueprintConfigEntry,
 ) -> bool:
     """Set up this integration using UI."""
-    coordinator = BlueprintDataUpdateCoordinator(
-        hass=hass,
-        logger=LOGGER,
-        name=DOMAIN,
-        update_interval=timedelta(hours=1),
-    )
+    coordinator = BlueprintDataUpdateCoordinator(hass=hass, logger=LOGGER, name=DOMAIN)
     entry.runtime_data = IntegrationBlueprintData(
         client=IntegrationBlueprintApiClient(
-            username=entry.data[CONF_USERNAME],
-            password=entry.data[CONF_PASSWORD],
             session=async_get_clientsession(hass),
         ),
         integration=async_get_loaded_integration(hass, entry.domain),
