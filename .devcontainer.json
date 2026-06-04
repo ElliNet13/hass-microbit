@@ -1,5 +1,5 @@
 {
-    "name": "ludeeus/integration_blueprint",
+    "name": "ElliNet13/hass-microbit",
     "image": "mcr.microsoft.com/devcontainers/base:debian",
     "postCreateCommand": "scripts/setup",
     "forwardPorts": [
@@ -43,5 +43,8 @@
         "ghcr.io/devcontainers-extra/features/apt-packages:1": {
             "packages": "ffmpeg,libturbojpeg0,libpcap-dev"
         }
-    }
+    },
+    "runArgs": [
+        "--privileged"
+    ]
 }
