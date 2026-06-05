@@ -7,7 +7,7 @@
       "options": {
         "cwd": "${workspaceFolder}/home-assistant-core"
       },
-      "command": "/home/vscode/.local/bin/python3.14 -m homeassistant -c ../config",
+      "command": "newgrp dialout bash -c \"/home/vscode/.local/bin/python3.14 -m homeassistant -c ../config || true\"",
       "group": "test",
       "presentation": {
         "reveal": "always",

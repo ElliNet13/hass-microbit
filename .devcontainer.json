@@ -1,9 +1,10 @@
 {
     "name": "ElliNet13/hass-microbit",
     "build": {
-      "dockerfile": "./home-assistant-core/Dockerfile.dev",
-      "context": "./home-assistant-core"
+        "dockerfile": "./home-assistant-core/Dockerfile.dev",
+        "context": "./home-assistant-core"
     },
+    "postCreateCommand": "sudo usermod -aG dialout $USER && /home/vscode/.local/bin/python3.14 -m pip install --break-system-packages -r ./home-assistant-core/requirements.txt",
     "forwardPorts": [
         8123
     ],
@@ -43,7 +44,7 @@
             "version": "3.14"
         },
         "ghcr.io/devcontainers-extra/features/apt-packages:1": {
-            "packages": "ffmpeg,libturbojpeg0,libpcap-dev"
+            "packages": "ffmpeg,libturbojpeg0,libpcap-dev,screen"
         }
     },
     "runArgs": [

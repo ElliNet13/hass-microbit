@@ -2,14 +2,15 @@
     "config": {
         "step": {
             "user": {
-                "description": "not ready yet",
+                "description": "Please select the serial port your micro:bit is connected to.",
                 "data": {}
             }
         },
         "error": {
             "unknown": "An unknown error occurred.",
             "no_serial_port": "No serial port found. Please make sure your micro:bit is connected and try again.",
-            "handshake_failed": "Failed to handshake with the micro:bit. Please make sure your micro:bit is running the correct firmware and try again."
+            "handshake_failed": "Failed to handshake with the micro:bit. Please make sure your micro:bit is running the correct firmware and try again.",
+            "no_port_found": "This entry was setup with no port. Please remove this entry and set it up again with a valid port."
         },
         "abort": {
             "already_configured": "This entry is already configured."

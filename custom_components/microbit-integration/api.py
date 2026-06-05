@@ -1,12 +1,9 @@
 """Sample API Client."""
 
 from __future__ import annotations
+import serial
 
-import socket
 from typing import Any
-
-import aiohttp
-import async_timeout
 
 
 class IntegrationBlueprintApiClientError(Exception):
@@ -26,13 +23,13 @@ class IntegrationBlueprintApiClientAuthenticationError(
 
 
 class IntegrationBlueprintApiClient:
-    """Sample API Client."""
+    """Serial API Client."""
 
     def __init__(
         self,
-        serial_port: str,
+        serial_port: serial.Serial,
     ) -> None:
-        """Sample API Client."""
+        """Serial API Client."""
         self._serial_port = serial_port
 
     async def async_get_data(self) -> Any:
